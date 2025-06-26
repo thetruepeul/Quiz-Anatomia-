@@ -1,0 +1,54 @@
+/* RESET / BASE ---------------------------------------------------- */
+*,
+*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;}
+body{font-family:"Inter",sans-serif;color:#222;background:#f3f4f8;transition:background .4s;}
+.container{width:min(1100px,92%);margin:0 auto;padding-block:2.5rem;}
+.hidden{display:none!important;}
+
+/* CARD HOME ------------------------------------------------------- */
+.card-wrapper{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.75rem;}
+.quiz-card{display:flex;flex-direction:column;justify-content:space-between;border-radius:1.25rem;overflow:hidden;cursor:pointer;box-shadow:0 12px 24px -12px rgba(0,0,0,.15);transition:.25s transform;}
+.quiz-card:hover{transform:translateY(-6px);}
+.quiz-card .top{padding:1.8rem 1.4rem;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:1.2rem;color:#fff;}
+.quiz-card .top h3{font-size:1.05rem;text-align:center;line-height:1.3;font-weight:600;}
+.quiz-card .icon{width:52px;height:52px;border-radius:50%;border:2px solid rgba(255,255,255,.6);display:flex;justify-content:center;align-items:center;font-size:1.7rem;}
+.quiz-card .bottom{background:#fff;padding:1rem;display:flex;justify-content:center;}
+.quiz-card .bottom span{padding:.45rem 1.2rem;border-radius:999px;font-size:.9rem;background:#fdcb6e;color:#fff;font-weight:600;}
+.top.violet{background:#6c5ce7;} .top.teal{background:#00b894;} .top.orange{background:#fdcb6e;} .top.yellow{background:#ffeaa7;color:#333;} .top.red{background:#e17055;}
+
+/* SFONDO GRADIENTE DURANTE I QUIZ DI SEZIONE ---------------------- */
+body.playing:not(.final-mode){background:linear-gradient(180deg,#4b2ff6 0%, #11998e 100%);}
+
+/* QUIZ FRAME ------------------------------------------------------ */
+.tablet-frame{background:#fff;border-radius:1.2rem;max-width:760px;margin-inline:auto;padding:2.2rem 2rem;box-shadow:0 16px 32px -10px rgba(0,0,0,.3);position:relative;}
+.quiz-heading{margin-bottom:1.5rem;font-size:clamp(1.3rem,2.8vw,1.9rem);}
+.timer{margin:0 auto 1.1rem;font-weight:700;color:#e74c3c;font-size:1.1rem;}
+.question-box{background:#fafafa;border-radius:1rem;padding:1.8rem 1.4rem;box-shadow:0 4px 8px rgba(0,0,0,.04);white-space:pre-line;font-size:1.06rem;line-height:1.45;margin-bottom:1.8rem;}
+.actions{display:flex;gap:1.1rem;justify-content:center;margin-bottom:1.4rem;}
+.answer-btn{flex:1;padding:.9rem 0;font-weight:600;font-size:1rem;border:none;cursor:pointer;border-radius:.8rem;transition:.25s transform, .25s box-shadow;}
+.answer-btn:hover:not(:disabled){transform:translateY(-2px);}
+.btn-true{background:#4b2ff6;color:#fff;} .btn-false{background:#fff;color:#222;border:2px solid #eee;}
+.answer-btn:disabled{opacity:.55;cursor:default;}
+.primary-btn,.secondary-btn{display:block;margin:.4rem auto;padding:.75rem 2rem;border-radius:2rem;font-weight:600;border:none;cursor:pointer;transition:opacity .2s;}
+.primary-btn{background:#4b2ff6;color:#fff;} .secondary-btn{background:#fff;color:#333;border:2px solid #ddd;}
+.primary-btn:hover,.secondary-btn:hover{opacity:.87;}
+.quit-btn{margin-top:1rem;}
+.counter{position:absolute;bottom:1.2rem;right:1.4rem;width:34px;height:34px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;color:#666;box-shadow:0 2px 4px rgba(0,0,0,.1);}
+.feedback{font-weight:600;text-align:center;min-height:1.4rem;margin-bottom:.6rem;}
+.feedback.correct{color:#22b266;} .feedback.wrong{color:#e74c3c;}
+
+/* ANIMAZIONI FEEDBACK -------------------------------------------- */
+.flash-good{background:#22b266!important;color:#fff!important;}
+.flash-bad {background:#e74c3c!important;color:#fff!important;}
+@keyframes pop{0%{transform:scale(.3);opacity:.0;}60%{opacity:1;}100%{transform:scale(1.1);opacity:0;}}
+.fx-icon{position:absolute;font-size:1.8rem;animation:pop .6s forwards pointer-events:none;}
+@keyframes shake{10%,90%{transform:translateX(-1px);}20%,80%{transform:translateX(2px);}30%,50%,70%{transform:translateX(-4px);}40%,60%{transform:translateX(4px);} }
+.shake{animation:shake .5s;}
+
+.final-mode body{background:#fafafa;} /* sobrio */
+.final-mode .tablet-frame{box-shadow:0 8px 16px -10px rgba(0,0,0,.12);}
+.final-mode .btn-true{background:#4b4b4b;} .final-mode .primary-btn{background:#4b4b4b;}
+
+/* MEDIA ----------------------------------------------------------- */
+@media(max-width:600px){.tablet-frame{padding:1.6rem 1.2rem;} .answer-btn{font-size:.9rem;} .counter{bottom:.8rem;right:.8rem;}}

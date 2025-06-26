@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Anatomia</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- HOME – selezione quiz -->
+  <section id="home" class="container">
+    <div id="quiz-list" class="card-wrapper"></div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz-container" class="container hidden">
+    <div class="tablet-frame">
+      <h2 id="quiz-title" class="quiz-heading"></h2>
+
+      <div id="timer" class="timer hidden"></div>
+
+      <div id="question-box" class="question-box">
+        <p id="question-text"></p>
+      </div>
+
+      <p id="feedback" class="feedback"></p>
+
+      <div class="actions">
+        <button id="true-btn"  class="answer-btn btn-true">Vero</button>
+        <button id="false-btn" class="answer-btn btn-false">Falso</button>
+      </div>
+
+      <button id="next-btn" class="primary-btn hidden">Prossima domanda</button>
+      <button id="quit-btn" class="secondary-btn quit-btn">Torna alla Home</button>
+
+      <div id="counter" class="counter"></div>
+    </div>
+  </section>
+
+  <!-- RISULTATO -->
+  <section id="result-container" class="container hidden">
+    <p id="result-text"></p>
+    <button id="home-btn" class="primary-btn">Torna alla Home</button>
+  </section>
+
+  <!-- AUDIO pre-caricato (file mp3 da tenere nella stessa cartella) -->
+  <audio id="sfx-good" src="correct.mp3" preload="auto"></audio>
+  <audio id="sfx-bad"  src="wrong.mp3"   preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
